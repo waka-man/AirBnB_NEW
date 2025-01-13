@@ -3,6 +3,7 @@ BaseModel
 """
 import uuid
 import datetime
+from models import storage
 
 
 class BaseModel:
@@ -29,6 +30,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
+            storage.new(self)
         else:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -52,6 +54,7 @@ class BaseModel:
         the instance with the current datetime.
         """
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
