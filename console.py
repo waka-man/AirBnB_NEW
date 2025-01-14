@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
 """
 This module contains the entry point of the command interpreter
 """
 
-#!/usr/bin/env python3
 import cmd
+
+
 class HBNBCommand(cmd.Cmd):
     """
     The class that implements the command interpreter
@@ -42,12 +44,14 @@ class HBNBCommand(cmd.Cmd):
         Displays help for commands.
 
         Args:
-            arg: The command to display help for, or None to display general help.
+            arg: The command to display help for,
+            or None to display general help.
 
         Returns:
             None
         """
         return super().do_help(arg)
+
     def emptyline(self):
         """
         Called when an empty line is entered in response to the prompt.
@@ -59,6 +63,7 @@ class HBNBCommand(cmd.Cmd):
             False, indicating that the empty line is ignored.
         """
         return False
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
